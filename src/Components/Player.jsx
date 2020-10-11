@@ -1,0 +1,126 @@
+import ITManPlayer from './ITManPlayer';
+import React, { Component } from 'react';
+import axios from 'axios';
+class Player extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            video_url: '',
+            audio_url: '',
+            loaded: false,
+            }
+        this.fetchVideo = this.fetchVideo.bind(this);
+    }
+
+    fetchVideo(){
+        if (this.state.loaded == true){
+            return;
+        }
+        let video_path = `http://localhost:4000/MITM/download/${this.props.match.params.ix}/`
+        // console.log(video_path);
+        axios.get(video_path)
+        .then( res => {
+            console.log(res.data);
+            let div = document.createElement("div")
+            div.innerHTML = res.data
+            let links = div.querySelectorAll('a');
+            for(let i = 0; i < links.length; i++){
+                let link = links[i]
+                let innerURL = link.innerHTML;
+                if (innerURL.includes('audio')) {
+                    this.setState({
+                        audio_url: video_path + innerURL
+                    });
+                }
+                else {
+                    this.setState({
+                        video_url: video_path + links[i].innerHTML,
+                        loaded: true,
+                    }); 
+                }
+            }
+
+            console.log(this.state.video_url);
+            console.log(this.state.audio_url);
+            this.forceUpdate();
+        }
+            
+
+        ).catch(err => {
+            console.log(err);
+        })
+
+    }
+
+    videoPlay = () =>{
+        this.ITManPlayer.video.play();
+        this.audioplayer.play();
+        
+      }
+    videoPause= () =>{
+        this.ITManPlayer.video.pause();
+        this.audioplayer.pause();
+    }
+    videoSeek = () =>{
+        this.audioplayer.currentTime = this.ITManPlayer.video.currentTime();
+    }
+    volumechange = () => {
+        this.audioplayer.volume = this.ITManPlayer.video.volume();
+        this.audioplayer.muted = this.ITManPlayer.video.muted();
+    }
+
+    componentDidMount(){
+        this.fetchVideo()
+        let videoFetchInterval = setInterval(this.fetchVideo, 500);
+        this.setState({interrvalId: videoFetchInterval});
+    }
+
+    componentWillUnmount(){
+        clearInterval(this.state.interrvalId);
+    }
+
+    render(){
+        if (this.state.video_url !== "")
+        return (
+            <div className="wrap">
+              <ITManPlayer 
+              ref={player => (this.ITManPlayer = player)}
+              src = {this.state.video_url}
+              eventON={{
+                pause: () => {
+                  console.log("Pause");
+                  {this.videoPause()}
+                },
+                play: () => {
+                  console.log("Play");
+                  {this.videoPlay()}
+                },
+                seeked: () => {
+                    {this.videoSeek()}
+                    console.log("Seeked");
+                  },
+                volumechange: () => {
+                    {this.volumechange()}
+                    console.log("volumechange");
+                }
+                
+              }}
+              />
+
+              {/* <button onClick={this.videoPlay}>Play</button>
+              <button onClick={this.videoPause}>Pause</button> */}
+              <audio ref={aud =>(this.audioplayer = aud)} src={this.state.audio_url} type="audo/mp4"></audio>
+            </div>
+          );
+
+          else{
+              return <div>
+                  <h1>Loading</h1>
+              </div>
+          }
+    }
+
+}
+
+
+export default Player
