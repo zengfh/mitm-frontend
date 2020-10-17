@@ -8,6 +8,7 @@ class Player extends Component {
             video_url: '',
             audio_url: '',
             loaded: false,
+            fetchcount: 0,
             }
         this.fetchVideo = this.fetchVideo.bind(this);
     }
@@ -16,11 +17,11 @@ class Player extends Component {
         if (this.state.loaded == true){
             return;
         }
-        let video_path = `http://localhost:4000/MITM/download/${this.props.match.params.ix}/`
+        let video_path = `http://localhost:4000/mitm/download/${this.props.match.params.ix}/`
         // console.log(video_path);
         axios.get(video_path)
         .then( res => {
-            console.log(res.data);
+            // console.log(res.data);
             let div = document.createElement("div")
             div.innerHTML = res.data
             let links = div.querySelectorAll('a');
@@ -39,10 +40,11 @@ class Player extends Component {
                     }); 
                 }
             }
-
-            console.log(this.state.video_url);
-            console.log(this.state.audio_url);
-            this.forceUpdate();
+            clearInterval(this.state.interrvalId);
+            clearTimeout(this.state.timeoutId);
+            // console.log(this.state.video_url);
+            // console.log(this.state.audio_url);
+            // this.forceUpdate();
         }
             
 
@@ -70,17 +72,20 @@ class Player extends Component {
     }
 
     componentDidMount(){
-        this.fetchVideo()
-        let videoFetchInterval = setInterval(this.fetchVideo, 500);
+        // this.fetchVideo()
+        let videoFetchInterval = setInterval(this.fetchVideo, 2000);
         this.setState({interrvalId: videoFetchInterval});
+        let videoFetchTimeout = setTimeout(()=>{alert("Source not found");}, 30000);
+        this.setState({timeoutId: videoFetchTimeout});
     }
 
     componentWillUnmount(){
         clearInterval(this.state.interrvalId);
+
     }
 
     render(){
-        if (this.state.video_url !== "")
+        if (this.state.video_url !== "" && this.state.audio_url !== "")
         return (
             <div className="wrap">
               <ITManPlayer 
