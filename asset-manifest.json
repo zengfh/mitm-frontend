@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/mitm-frontend/static/css/main.52dd4725.chunk.css",
-    "main.js": "/mitm-frontend/static/js/main.a98cc6d5.chunk.js",
-    "main.js.map": "/mitm-frontend/static/js/main.a98cc6d5.chunk.js.map",
+    "main.js": "/mitm-frontend/static/js/main.2768e1f6.chunk.js",
+    "main.js.map": "/mitm-frontend/static/js/main.2768e1f6.chunk.js.map",
     "runtime-main.js": "/mitm-frontend/static/js/runtime-main.2cfc1289.js",
     "runtime-main.js.map": "/mitm-frontend/static/js/runtime-main.2cfc1289.js.map",
-    "static/js/2.eb9798d6.chunk.js": "/mitm-frontend/static/js/2.eb9798d6.chunk.js",
-    "static/js/2.eb9798d6.chunk.js.map": "/mitm-frontend/static/js/2.eb9798d6.chunk.js.map",
+    "static/js/2.f60d1797.chunk.js": "/mitm-frontend/static/js/2.f60d1797.chunk.js",
+    "static/js/2.f60d1797.chunk.js.map": "/mitm-frontend/static/js/2.f60d1797.chunk.js.map",
     "index.html": "/mitm-frontend/index.html",
-    "precache-manifest.e122fcf9accd173c27f2e5db474b950f.js": "/mitm-frontend/precache-manifest.e122fcf9accd173c27f2e5db474b950f.js",
+    "precache-manifest.6e2c2e207f7da682cc5c7fe7437f80fd.js": "/mitm-frontend/precache-manifest.6e2c2e207f7da682cc5c7fe7437f80fd.js",
     "service-worker.js": "/mitm-frontend/service-worker.js",
     "static/css/main.52dd4725.chunk.css.map": "/mitm-frontend/static/css/main.52dd4725.chunk.css.map",
-    "static/js/2.eb9798d6.chunk.js.LICENSE.txt": "/mitm-frontend/static/js/2.eb9798d6.chunk.js.LICENSE.txt"
+    "static/js/2.f60d1797.chunk.js.LICENSE.txt": "/mitm-frontend/static/js/2.f60d1797.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.2cfc1289.js",
-    "static/js/2.eb9798d6.chunk.js",
+    "static/js/2.f60d1797.chunk.js",
     "static/css/main.52dd4725.chunk.css",
-    "static/js/main.a98cc6d5.chunk.js"
+    "static/js/main.2768e1f6.chunk.js"
   ]
 }
