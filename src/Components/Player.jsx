@@ -21,7 +21,6 @@ class Player extends Component {
         // console.log(video_path);
         axios.get(video_path)
         .then( res => {
-            // console.log(res.data);
             let div = document.createElement("div")
             div.innerHTML = res.data
             let links = div.querySelectorAll('a');
@@ -42,9 +41,6 @@ class Player extends Component {
             }
             clearInterval(this.state.interrvalId);
             clearTimeout(this.state.timeoutId);
-            // console.log(this.state.video_url);
-            // console.log(this.state.audio_url);
-            // this.forceUpdate();
         }
             
 
