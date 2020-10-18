@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Redirecting
+    </title>
+</head>
+<body>
+
+<p id="demo"></p>
+<script>
+var href = window.location.href;
+var host = window.location.host;
+console.log(href);
+console.log(host);
+url = new URL(href);
+// href = href.replace("https://", '');
+// console.log(href);
+// var suffix = href.replace(host, '').replace(window.location.pathname + '?v=', '');
+// console.log(window.location.pathname);
+// console.log(suffix);
+
+// window.location.href = "http://localhost:3000/video/" + window.location.href;
+console.log("http://localhost:3000/video/" + url.searchParams.get('v'));
+window.location.href="http://localhost:3000/video/" + url.searchParams.get('v');
+</script>
+
+</body>
+</html>

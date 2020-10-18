@@ -17,7 +17,7 @@ class Player extends Component {
         if (this.state.loaded == true){
             return;
         }
-        let query = this.props.match.location.search;
+        let query = this.props.location.search;
         let vid = query.substr(3);
         let video_path = `http://204.44.88.11/mitm/download/${vid}/`
         // console.log(video_path);
