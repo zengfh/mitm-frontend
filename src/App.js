@@ -7,10 +7,12 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 class App extends Component {
   render() {
+    console.log(process.env.PUBLIC_URL);
     return (
       <Router basename={process.env.PUBLIC_URL}>
         <Switch>
-          <Route path="/video/:ix"  render={(props) => (<Player key={props.match.params.ix} {...props} />) }/>
+          <Route path = "/" component = {Player}></Route>
+          {/* <Route path="/:ix"  render={(props) => (<Player key={props.match.params.ix} {...props} />) }/> */}
         </Switch>
       </Router>
     );

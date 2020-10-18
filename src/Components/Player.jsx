@@ -17,7 +17,9 @@ class Player extends Component {
         if (this.state.loaded == true){
             return;
         }
-        let video_path = `http://localhost:4000/mitm/download/${this.props.match.params.ix}/`
+        let query = this.props.match.location.search;
+        let vid = query.substr(3);
+        let video_path = `http://204.44.88.11/mitm/download/${vid}/`
         // console.log(video_path);
         axios.get(video_path)
         .then( res => {
