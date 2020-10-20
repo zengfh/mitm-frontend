@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8e43302c5106721714a4a35b76fd26f7",
+    "revision": "1f875d06a962d7847a2c965587b66591",
     "url": "/mitm-frontend/index.html"
   },
   {
-    "revision": "0a70cfde6132866ba38a",
+    "revision": "e68a9b77b61f60bf50d9",
     "url": "/mitm-frontend/static/css/main.52dd4725.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mitm-frontend/static/js/2.24ea29e2.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0a70cfde6132866ba38a",
-    "url": "/mitm-frontend/static/js/main.6f10c88e.chunk.js"
+    "revision": "e68a9b77b61f60bf50d9",
+    "url": "/mitm-frontend/static/js/main.21335a0d.chunk.js"
   },
   {
     "revision": "644e1ad5950e038d2a94",
